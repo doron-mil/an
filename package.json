@@ -1,0 +1,19 @@
+{
+  "name": "populationpyramid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "population_pyramid.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doron-mil/populationPyramid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doron-mil/populationPyramid/issues"
+  },
+  "homepage": "https://github.com/doron-mil/populationPyramid#readme"
+}
