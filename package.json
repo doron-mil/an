@@ -4,7 +4,7 @@
   "description": "",
   "main": "population_pyramid.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest ./population_pyramid.test.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/doron-mil/populationPyramid/issues"
   },
-  "homepage": "https://github.com/doron-mil/populationPyramid#readme"
+  "homepage": "https://github.com/doron-mil/populationPyramid#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0"
+  },
+  "jest": {
+    "testMatch": [
+      "**/*.test.js"
+    ]
+  }
 }

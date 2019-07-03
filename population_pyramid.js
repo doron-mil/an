@@ -16,15 +16,15 @@ class PopulationPyramid {
         this.females = new Map();
         this.males = new Map();
 
-        ageLevelsArray.reduce((previousValue, currentValue) => {
-            this.females.set(currentValue, 0);
-            this.males.set(currentValue, 0);
+        ageLevelsArray.forEach((value) => {
+            this.females.set(value, 0);
+            this.males.set(value, 0);
         });
     }
 }
 
 const mockPopulationData = (aPopulationSize) => {
-    return Array( aPopulationSize ).fill(null).reduce(
+    return Array(aPopulationSize).fill(null).reduce(
         (previousValue) => {
             const age = Math.random() * 120;
             const isMale = Math.random() > 0.5;
@@ -52,15 +52,26 @@ const createPopulationPyramid = (aPopulationDataArray) => {
             ageLevel = 115;
         }
         const genderMap = individualValue.isMale ? accumulator.males : accumulator.females;
-        genderMap.set(ageLevel, genderMap.get(ageLevel) + 1);
+        const currentValue = genderMap.get(ageLevel);
+        if (currentValue != null && currentValue != undefined) {
+            genderMap.set(ageLevel, currentValue + 1);
+        } else {
+            console.error(`Non existing age level : ${ageLevel}`);
+        }
+
         return accumulator;
     }, new PopulationPyramid());
 };
 
-const populationSize = 1000000;
-const mockPopulationDataArray = mockPopulationData(populationSize);
-const populationPyramid = createPopulationPyramid(mockPopulationDataArray);
-printPopulationPyramid(populationPyramid);
+// const populationSize = 1000000;
+// const mockPopulationDataArray = mockPopulationData(populationSize);
+// const populationPyramid = createPopulationPyramid(mockPopulationDataArray);
+// printPopulationPyramid(populationPyramid);
 
-
-
+module.exports = {
+    Individual,
+    PopulationPyramid,
+    ageLevelsArray,
+    mockPopulationData,
+    createPopulationPyramid
+};
